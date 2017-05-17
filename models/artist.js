@@ -20,6 +20,13 @@ class Artist {
     .returning('*')
   }
 
+  static create({first_name, last_name, nationality}) {
+    const artist ={first_name, last_name, nationality}
+    return db('artists')
+    .insert(artist)
+    .returning('*')
+  }
+
 
 }
 

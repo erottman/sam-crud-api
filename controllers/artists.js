@@ -1,5 +1,6 @@
 const Artist = require('../models/artist')
 
+
 const getAll = (req,res) => {
   Artist.getAll()
   .then(artists => {
@@ -25,4 +26,11 @@ const destroy = (req,res) => {
   })
 }
 
-module.exports = { getAll, getOne, destroy }
+const create = (req,res) => {
+  Artist.create(req.body)
+  .then(([artist]) => {
+    res.json(artist)
+  })
+}
+
+module.exports = { getAll, getOne, destroy, create }
